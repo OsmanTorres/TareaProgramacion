@@ -15,13 +15,13 @@ using namespace std;
 
 int main() {
 
-  printf("      *             *      \n");
-  printf("      ***         ***      \n");
-  printf("      ****       ****      \n");
-  printf("************   ************\n");
-  printf("      ****       ****      \n");
-  printf("      **          ***      \n");
-  printf("      *             *      \n");
+	printf("      *             *      \n");
+	printf("      ***         ***      \n");
+	printf("      ****       ****      \n");
+	printf("************   ************\n");
+	printf("      ****       ****      \n");
+	printf("      **          ***      \n");
+	printf("      *             *      \n");
 	
 	_getche();
 	return 0;
