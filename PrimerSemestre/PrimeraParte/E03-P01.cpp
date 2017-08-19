@@ -13,7 +13,7 @@ using namespace std;
 int main() {
 
 	int x;
-	printf("Introdusca un Valor:  "); scanf("%d", &amp;x);
+	printf("Introdusca un Valor:  "); scanf("%d", &x);
 	printf("Valor Introducido: %d", x);
 	
 	_getche();
