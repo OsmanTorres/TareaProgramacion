@@ -1,8 +1,8 @@
 /*
-4)	Elabore un programa que muestre su matrícula COMPLETA con números grades, por ejemplo:
+Elabore un programa que muestre su matrícula COMPLETA con números grades, por ejemplo:
 *******   *******      *
       *         *      *
-	  *         *      *
+      *         *      *
 *******         *      *
 *               *      *
 *               *      *
