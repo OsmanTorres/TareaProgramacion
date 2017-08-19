@@ -11,12 +11,13 @@ using namespace std;
 
 int main() {
 
-	int x; 
-	double y;
-	printf("Introdusca un Valor Entero:  "); scanf("%d", &amp;x);
-	printf("Introdusca un Valor Flotante:  "); scanf("%f", &amp;y);
-	printf("Valor Entero Introducido: %d", x);
-	printf("Valor Flotante Introducido: %f", y);
+	int x, y, suma;
+	printf("Introdusca Primer Valor Entero:  "); scanf("%d", &x);
+	printf("Introdusca Segundo Valor Entero:  "); scanf("%d", &y);
+	suma = x + y;
+	printf("\nPrimer Valor: %d", x);
+	printf("\nSegundo Valor: %d", y);
+	printf("\nSuma Valores: %d", suma);
 	
 	_getche();
 	return 0;
