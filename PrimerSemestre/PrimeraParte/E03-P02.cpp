@@ -14,12 +14,12 @@ using namespace std;
 
 int main() {
 
-	int x; 
+	int x;
 	double y;
 	printf("Introdusca un Valor Entero:  "); scanf("%d", &x);
-	printf("Introdusca un Valor Flotante:  "); scanf("%f", &y);
-	printf("Valor Entero Introducido: %d", x);
-	printf("Valor Flotante Introducido: %f", y);
+	printf("Introdusca un Valor Flotante:  "); scanf("%lf", &y);
+	printf("\nValor Entero Introducido: %d", x);
+	printf("\nValor Flotante Introducido: %.2f", y);
 	
 	_getche();
 	return 0;
