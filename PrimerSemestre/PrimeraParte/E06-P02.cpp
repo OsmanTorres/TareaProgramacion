@@ -14,12 +14,10 @@ int main() {
 	printf("Introduzca el Primer Numero Entero : "); scanf("%d", &a);
 	printf("Introduzca el Segundo Numero Entero : "); scanf("%d", &b);
 
-	if (a > b) {
-		printf("\nEl numero %d es mayor que %d.", a, b);
-	} else if (a < b) {
-		printf("\nEl numero %d es menor que %d.", a, b);
+	if (a == b) {
+		printf("\nEl numero %d es igual a %d.", a, b);
 	} else {
-		printf("\nEl numero %d es igual que %d.", a, b);
+		printf("\nEl numero %d es distinto a %d.", a, b);
 	}
 
 	_getche();
