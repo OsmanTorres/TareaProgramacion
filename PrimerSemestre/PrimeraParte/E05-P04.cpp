@@ -18,14 +18,11 @@ int main() {
 
 	if (promedio < 80) {
 		printf("\nLo sentimos, su beca a sido suspendida.");
-	}
-	else if (promedio >= 80 && promedio < 85) {
+	} else if (promedio >= 80 && promedio < 85) {
 		printf("\nLo sentimos, su beca a sido condicionada.");
-	}
-	else if (promedio >= 85 && promedio < 90) {
+	} else if (promedio >= 85 && promedio < 90) {
 		printf("\nSu beca se mantendra igual con el promedio actual.");
-	}
-	else if (promedio >= 90 && promedio <= 100) {
+	} else if (promedio >= 90 && promedio <= 100) {
 		printf("\nFelicidades, su beca ha sido incrementada.");
 	} else {
 		printf("\nError. Promedio no valido.");
