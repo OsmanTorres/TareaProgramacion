@@ -16,8 +16,7 @@ int main() {
 	printf("Introduzca su edad: "); scanf("%d", &edad);
 	if (edad >= 60) {
 		printf("\nTiene la edad requerida para obtener una credencial del INSEN.");
-	}
-	else {
+	} else {
 		printf("\nNo tiene la edad requerida para obtener una credencial del INSEN.");
 	}
 
