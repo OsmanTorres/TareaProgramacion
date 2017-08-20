@@ -19,8 +19,7 @@ int main() {
 	
 	if (edad >= 18 && viveToluca == 1) {
 		printf("\nCumple con los requisitos para obtener una credencial de elector.");
-	}
-	else {
+	} else {
 		printf("\nNo cumple con totos los requisitos para obtener una credencial de elector.");
 	}
 
