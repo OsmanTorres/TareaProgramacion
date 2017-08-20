@@ -28,16 +28,13 @@ int main() {
 	if (agua == 1 && nutrientes == 1) {
 		crecimiento = aguaYNutrientes * meses;
 		printf("\nEl arbol crecio %.2f cm este a%co.", crecimiento, 164);
-	}
-	else if (agua == 1 && nutrientes != 1) {
+	} else if (agua == 1 && nutrientes != 1) {
 		crecimiento = soloAgua * meses;
 		printf("\nEl arbol crecio %.2f cm este a%co.", crecimiento, 164);
-	}
-	else if (agua != 1 && nutrientes == 1) {
+	} else if (agua != 1 && nutrientes == 1) {
 		crecimiento = soloNutrientes * meses;
 		printf("\nEl arbol crecio %.2f cm este a%co.", crecimiento, 164);
-	}
-	else {
+	} else {
 		crecimiento = ningunAguaYNutrientes * meses;
 		printf("\nEl arbol crecio %.2f cm este a%co.", crecimiento, 164);
 	}
