@@ -21,11 +21,9 @@ int main() {
 	if (antiguedadEmpleo >= 5 && ingresoMensual >= 15000) {
 		enganche = (costoCasa*(double(10) / 100));
 		printf("\nFelicidades, usted puede adquirir una casa con $%.2f de enganche y meses fijos.", enganche);
-	}
-	else if (antiguedadEmpleo >= 0 && ingresoMensual >= 1) {
+	} else if (antiguedadEmpleo >= 0 && ingresoMensual >= 1) {
 		printf("\nLo sentimos, no cumple con los requisitos para tramitar una casa.");
-	}
-	else {
+	} else {
 		printf("Error. Valores incorrectos.");
 	}
 	
