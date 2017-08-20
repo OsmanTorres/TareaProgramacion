@@ -24,22 +24,19 @@ int main() {
 
 		printf("\nNecesita comprar mas de $1000 para obtener un descuento.");
 
-	}
-	else if (compra >= 1000 && compra < 5000) {
+	} else if (compra >= 1000 && compra < 5000) {
 
 		printf("\nFelicidades, ha obtenido un descuento del %c%.0f.", 37, descuentoA);
 		descuento = compra - (compra*(descuentoA / 100));
 		printf("\nNuevo Monto de Compra : $%.2f", descuento);
 
-	}
-	else if (compra >= 5000 && compra < 10000) {
+	} else if (compra >= 5000 && compra < 10000) {
 
 		printf("\nFelicidades, ha obtenido un descuento del  %c%.0f.", 37, descuentoB);
 		descuento = compra - (compra*(descuentoB / 100));
 		printf("\nNuevo Monto de Compra : $%.2f", descuento);
 
-	}
-	else {
+	} else {
 
 		printf("\nFelicidades, ha obtenido un descuento del  %c%.0f.", 37, descuentoC);
 		descuento = compra - (compra*(descuentoC / 100));
