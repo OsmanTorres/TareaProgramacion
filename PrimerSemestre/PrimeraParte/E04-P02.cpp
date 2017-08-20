@@ -53,7 +53,7 @@ int main() {
 	double costoTotalPlastico = totalPlastico * costoMetroPlastico;
 
 	int totalFlotadoresA = numFlotadoresA * numTinacosA;
-    int totalFlotadoresB = numFlotadoresB * numTinacosB;
+    	int totalFlotadoresB = numFlotadoresB * numTinacosB;
 	int totalFlotadoresC = numFlotadoresC * numTinacosC;
 	int totalFlotadores = totalFlotadoresA + totalFlotadoresB + totalFlotadoresC;
 	double costoTotalFlotadores = totalFlotadores * costoFlotador;
