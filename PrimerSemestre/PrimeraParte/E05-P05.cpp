@@ -25,36 +25,31 @@ int main() {
 		printf("\nVisitanos mas veces en el mismo mes para obtener importantes descuentos.");
 		printf("\nMonto de Compra : $%.2f", compra);
 
-	}
-	else if (numVisitas == 2) {
+	} else if (numVisitas == 2) {
 
 		printf("\nFelicidades, ha obtenido un descuento del %c20.", 37);
 		descuento = compra - (compra*(double(20) / 100));
 		printf("\nNuevo Monto de Compra : $%.2f", descuento);
 
-	}
-	else if (numVisitas == 3) {
+	} else if (numVisitas == 3) {
 
 		printf("\nFelicidades, ha obtenido un descuento del %c30.", 37);
 		descuento = compra - (compra*(double(30) / 100));
 		printf("\nNuevo Monto de Compra : $%.2f", descuento);
 
-	}
-	else if (numVisitas == 4) {
+	} else if (numVisitas == 4) {
 
 		printf("\nFelicidades, ha obtenido un descuento del %c40.", 37);
 		descuento = compra - (compra*(double(40) / 100));
 		printf("\nNuevo Monto de Compra : $%.2f", descuento);
 
-	}
-	else if (numVisitas >= 5) {
+	} else if (numVisitas >= 5) {
 
 		printf("\nFelicidades, ha obtenido un descuento del %c50.", 37);
 		descuento = compra - (compra*(double(50) / 100));
 		printf("\nNuevo Monto de Compra : $%.2f", descuento);
 
-	}
-	else {
+	} else {
 
 		printf("\nError. Numero de visitas incorrecto.");
 
