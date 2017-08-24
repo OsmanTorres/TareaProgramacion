@@ -30,7 +30,7 @@ int main() {
 	double ventaBicicleta = 1200;
 	double ventaLlanta = 250;
 	double ventaFreno = 150;
-	double ventaMarco = 699;
+	double ventaMarco = 600;
 	double ventaAsiento = 200;
 
 	//Venta Total
