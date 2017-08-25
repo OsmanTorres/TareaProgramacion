@@ -44,7 +44,7 @@ int main() {
 
 						} else {
 							printf("\nError. El numero no esta dentro del rango, intentelo de nuevo. ");
-							printf("\nIntroduzca el segundo numero flotante : "); scanf("%lf", &numDos);
+							printf("\nIntroduzca el tercer numero flotante : "); scanf("%lf", &numTres);
 						}
 
 					}
