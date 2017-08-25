@@ -28,7 +28,7 @@ int main() {
 	printf("\nIntroduzca el segundo numero entero : "); scanf("%d", &numDos);
 	while (numDos >= segundoMax || numDos <= segundoMin) {
 		printf("\nError. El numero no esta dentro del rango indicado.");
-		printf("\nIntroduzca el primer numero entero : "); scanf("%d", &numDos);
+		printf("\nIntroduzca el segundo numero entero : "); scanf("%d", &numDos);
 	}
 	
 	if (numUno == numDos) {
