@@ -25,6 +25,7 @@ int main() {
 	int factorial = 1;
 
 	while (contador <= numUno) {
+		
 		factorial = factorial * contador;
 		contador++;
 	}
