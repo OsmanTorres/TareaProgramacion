@@ -15,10 +15,10 @@ int main() {
 	int numUno;
 	int limMin = 1;
 	int limMax = 10;
-	printf("\nIntroduzca el primer numero entero : "); scanf("%d", &numUno);
+	printf("\nIntroduzca un numero entero (Entre %d y %d) : ", limMin, limMax); scanf("%d", &numUno);
 	while (numUno >= limMax || numUno <= limMin) {
 		printf("\nError. El numero no esta dentro del rango indicado.");
-		printf("\nIntroduzca el primer numero entero : "); scanf("%d", &numUno);
+		printf("\nIntroduzca un numero entero (Entre %d y %d) : ", limMin, limMax); scanf("%d", &numUno);
 	}
 
 	int contador = 1;
