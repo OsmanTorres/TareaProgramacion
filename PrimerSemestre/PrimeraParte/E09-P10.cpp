@@ -12,8 +12,7 @@ using namespace std;
 
 int main() {
 
-
-	int numUno, resultado;
+	int numUno;
 	int limMin = 1;
 	int limMax = 10;
 	printf("\nIntroduzca el primer numero entero : "); scanf("%d", &numUno);
@@ -21,16 +20,16 @@ int main() {
 		printf("\nError. El numero no esta dentro del rango indicado.");
 		printf("\nIntroduzca el primer numero entero : "); scanf("%d", &numUno);
 	}
-	
-	int contador = (numUno - 1);
-	
-	while (contador > 1) {
-		resultado += (numUno*contador);
-		contador -= 1;
-		numUno -= 1;
+
+	int contador = 1;
+	int factorial = 1;
+
+	while (contador <= numUno) {
+		factorial = factorial * contador;
+		contador++;
 	}
-	
-	printf("\nFactorial : %d", resultado);
+
+	printf("\nFactorial : %d", factorial);
 	
 	_getche();
 	return 0;
