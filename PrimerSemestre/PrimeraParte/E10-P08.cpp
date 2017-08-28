@@ -34,7 +34,7 @@ int main() {
 
 	int numUno;
 	int rangoMin = 1;
-	int rangoMax = 120;
+	int rangoMax = 20;
 	char caracter = '@';
 
 	HWND console = GetConsoleWindow(); RECT r;
