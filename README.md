@@ -54,14 +54,38 @@ for (int x = 10; x < 10; x++) {
 ### Funciones (E11 y E12)
 ```cpp
 //Almacenar un codigo dentro de otro mas pequeño y facil de usar.
-//Crear funcion Hola que imprime el mensaje de "Hola Mundo!"
+//Crear la funcion Hola, su codigo imprime el mensaje "Hola Mundo!"
 void decirHola(){
+  printf("Hola Mundo!");
 }
-
-for (int x = 10; x < 10; x++) {
-  //Equivalente al While anterior, este codigo se repetira 10 veces.
-}
+//Ejecutar la funcion
+decirHola();
 ```
 ### Arrays (E13, E14 y E15)
+```cpp
+//Almacenar una lista de valores.
+//Crea una lista con tres espacios para guardar tres valores
+int Lista[2];
+//Guarda los valores 1, 2, y 3 en los espacios de la lista
+Lista[0] = 1;
+Lista[1] = 2;
+Lista[2] = 3;
+```
 ### Strings (E16)
+```cpp
+//Almacenar y manipular texto
+//Crea un texto y guardalo en un string
+string saludo = "Hola Mundo!";
+//Imprime el texto
+printf("%s", saludo.c_str());
+```
 ### Matrices (E17)
+```cpp
+//Almacenar una lista de listas.
+//Crea una lista con dos espacios para guardar dos listas de tres valores
+int Matriz[1][2];
+//Guarda los valores 1, 2, y 3 en la primera lista
+//Guarda los valores 4, 5, y 6 en la segunda lista
+Matriz[0][0] = 1; Matriz[0][1] = 2; Matriz[0][2] = 3;
+Matriz[1][0] = 4; Matriz[1][1] = 5; Matriz[1][2] = 6;
+```
