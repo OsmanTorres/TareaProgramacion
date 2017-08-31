@@ -1,0 +1,9 @@
+/*
+Lea 9 valores enteros entre 1 y 999 (incluidos) en una matriz de 3X3, posteriormente despliegue la matriz 
+agregando una columna en la que debe mostrar los resultados de la suma de cada uno de los renglones, 
+al final agregue un renglón en el que deberá mostrar la suma de cada una de las columnas, debe verse de la siguiente forma:
+25	21	48	94
+31	5	16	52
+10	21	57	88
+66	47	121	X
+*/
