@@ -52,15 +52,18 @@ int pedirEntero(int min, int max) {
 		printf("\rIntroduzca un numero entero (entre %d y %d) : ", min, max); scanf("%d", &enteroCorrecto);
 	}
 	return enteroCorrecto;
-};
+}
+
 void mensajeError(int error) {
 	if (error == 1) {
 		printf("\nError. El numero esta fuera del rango. ");
 	}
 }
+
 void pausar() {
 	_getche();
 }
+
 COORD dibujarCuadrado(int dimension) {
 
 	printf("\n\n");
@@ -81,20 +84,15 @@ COORD dibujarCuadrado(int dimension) {
 	if ((h % 2) != 0) {
 
 		while (terminado == false) {
-
 			for (int i = 0; i < h; i++) {
 					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 					printf("*\b");
 					this_thread::sleep_for(chrono::milliseconds(velocidad));
 					coord.X += 1;
 			}
-			
 			m--;
-			
 			if (m == 0) {
-			
 				terminado = true;
-			
 			} else {
 				h--;
 				coord.X -= 1;
@@ -126,7 +124,6 @@ COORD dibujarCuadrado(int dimension) {
 		}
 	} else {
 		while (terminado == false) {
-
 			for (int i = 0; i < h; i++) {
 				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 				printf("*\b");
@@ -163,15 +160,13 @@ COORD dibujarCuadrado(int dimension) {
 				coord.X += 1;
 				m--;
 			}
-
 		}
 	}	
-
 	printf("\n\n");
 	return coord;
 }
+
 void borrarCuadrado(int dimension, COORD cursor) {
-	
 	COORD coord = cursor;
 	int velocidad = 40;
 	int h = 0;
@@ -181,7 +176,6 @@ void borrarCuadrado(int dimension, COORD cursor) {
 
 	while (terminado == false) {
 		if ((dimension % 2) != 0) {
-
 			if (m == z) {
 				terminado = true;
 			} else {
@@ -195,33 +189,27 @@ void borrarCuadrado(int dimension, COORD cursor) {
 					}
 					m--;
 				} else {
-
 						for (int i = 0; i < h; i++) {
 							coord.Y += 1;
 							SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 							printf(" ");
 							this_thread::sleep_for(chrono::milliseconds(velocidad));
 						}
-
 						h++;
 						m--;
-
 						for (int i = 0; i < h; i++) {
 							coord.X += 1;
 							SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 							printf(" ");
 							this_thread::sleep_for(chrono::milliseconds(velocidad));
 						}
-
 						m--;
-
 						for (int i = 0; i < h; i++) {
 							coord.Y -= 1;
 							SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 							printf(" ");
 							this_thread::sleep_for(chrono::milliseconds(velocidad));
 						}
-
 						h++;
 						for (int i = 0; i < h; i++) {
 							SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
@@ -248,38 +236,30 @@ void borrarCuadrado(int dimension, COORD cursor) {
 					m--;
 					coord.X -= 2;
 				} else {
-
-					
 					for (int i = 0; i < h; i++) {
 						coord.Y -= 1;
 						SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 						printf(" ");
 						this_thread::sleep_for(chrono::milliseconds(velocidad));
 					}
-
 					h++;
 					m--;
-
 					for (int i = 0; i < h; i++) {
 						coord.X -= 1;
 						SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 						printf(" ");
 						this_thread::sleep_for(chrono::milliseconds(velocidad));
 					}
-
 					if (m  == z) {
 						terminado = true; break;
 					}
-
 					m--;
-
 					for (int i = 0; i < h; i++) {
 						coord.Y += 1;
 						SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 						printf(" ");
 						this_thread::sleep_for(chrono::milliseconds(velocidad));
 					}
-
 					h++;
 					coord.X += 1;
 					for (int i = 0; i < h; i++) {
@@ -294,5 +274,4 @@ void borrarCuadrado(int dimension, COORD cursor) {
 			}
 		}
 	}
-
 }
