@@ -17,3 +17,282 @@ Su programa debe tener las siguientes funciones:
 Por ningún motivo use variables GLOBALES.
 */
 
+#include <iostream>
+#include <string>
+#include <stdio.h>
+#include <conio.h>
+#include <chrono>
+#include <thread>
+#include <Windows.h>
+using namespace std;
+
+int pedirEntero(int min, int Max);
+void mensajeError(int error);
+COORD dibujarCuadrado(int dimension);
+void pausar();
+void borrarCuadrado(int dimension, COORD cursor);
+
+int main() {
+
+	int ladoCuadrado = pedirEntero(1, 21);
+	COORD cursor = dibujarCuadrado(ladoCuadrado);
+	pausar();
+	borrarCuadrado(ladoCuadrado, cursor);
+	_getche();
+	return 0;
+
+}
+
+int pedirEntero(int min, int max) {
+	int enteroCorrecto;
+	printf("\nIntroduzca un numero entero (entre %d y %d) : ", min, max); scanf("%d", &enteroCorrecto);
+	while (enteroCorrecto >= max || enteroCorrecto <= min) {
+		mensajeError(1);
+		this_thread::sleep_for(chrono::milliseconds(2500));
+		printf("\rIntroduzca un numero entero (entre %d y %d) : ", min, max); scanf("%d", &enteroCorrecto);
+	}
+	return enteroCorrecto;
+};
+void mensajeError(int error) {
+	if (error == 1) {
+		printf("\nError. El numero esta fuera del rango. ");
+	}
+}
+void pausar() {
+	_getche();
+}
+COORD dibujarCuadrado(int dimension) {
+
+	printf("\n\n");
+	int h = dimension;
+	int m = (dimension)+(dimension - 1);
+	bool terminado = false;
+	int columna = 5;
+	int fila = 5;
+	COORD coord;
+	coord.X = columna;
+	coord.Y = fila;
+	int velocidad = 40;
+
+	HWND console = GetConsoleWindow(); RECT r;
+	GetWindowRect(console, &r);
+	MoveWindow(console, r.left, r.top, 1100, 600, TRUE);
+
+	if ((h % 2) != 0) {
+
+		while (terminado == false) {
+
+			for (int i = 0; i < h; i++) {
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+					printf("*\b");
+					this_thread::sleep_for(chrono::milliseconds(velocidad));
+					coord.X += 1;
+			}
+			
+			m--;
+			
+			if (m == 0) {
+			
+				terminado = true;
+			
+			} else {
+				h--;
+				coord.X -= 1;
+				for (int i = 0; i < h; i++) {
+					coord.Y += 1;
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+					printf("*\b");
+					this_thread::sleep_for(chrono::milliseconds(velocidad));
+				}
+				m--;
+				for (int i = 0; i < h; i++) {
+					coord.X -= 1;
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+					printf("*\b");
+					this_thread::sleep_for(chrono::milliseconds(velocidad));
+				}
+				m--;
+				h--;
+				for (int i = 0; i < h; i++) {
+					coord.Y -= 1;
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+					printf("*\b");
+					this_thread::sleep_for(chrono::milliseconds(velocidad));
+				}
+				coord.X += 1;
+				m--;
+			}
+
+		}
+	} else {
+		while (terminado == false) {
+
+			for (int i = 0; i < h; i++) {
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+				printf("*\b");
+				this_thread::sleep_for(chrono::milliseconds(velocidad));
+				coord.X += 1;
+			}
+			m--;
+			h--;
+			coord.X -= 1;
+			for (int i = 0; i < h; i++) {
+				coord.Y += 1;
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+				printf("*\b");
+				this_thread::sleep_for(chrono::milliseconds(velocidad));
+			}
+			m--;
+			for (int i = 0; i < h; i++) {
+				coord.X -= 1;
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+				printf("*\b");
+				this_thread::sleep_for(chrono::milliseconds(velocidad));
+			}
+			m--;
+			if (m == 0) {
+				terminado = true;
+			} else {
+				h--;
+				for (int i = 0; i < h; i++) {
+					coord.Y -= 1;
+					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+					printf("*\b");
+					this_thread::sleep_for(chrono::milliseconds(velocidad));
+				}
+				coord.X += 1;
+				m--;
+			}
+
+		}
+	}	
+
+	printf("\n\n");
+	return coord;
+}
+void borrarCuadrado(int dimension, COORD cursor) {
+	
+	COORD coord = cursor;
+	int velocidad = 40;
+	int h = 0;
+	int m = (dimension)+(dimension - 1);
+	int z = (dimension / 2);
+	bool terminado = false;
+
+	while (terminado == false) {
+		if ((dimension % 2) != 0) {
+
+			if (m == z) {
+				terminado = true;
+			} else {
+				if (m == ((dimension)+(dimension - 1))) {
+					h++;
+					for (int i = 0; i < h + 1; i++) {
+						SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+						printf("\b ");
+						this_thread::sleep_for(chrono::milliseconds(velocidad));
+						coord.X -= 1;
+					}
+					m--;
+				} else {
+
+						for (int i = 0; i < h; i++) {
+							coord.Y += 1;
+							SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+							printf(" ");
+							this_thread::sleep_for(chrono::milliseconds(velocidad));
+						}
+
+						h++;
+						m--;
+
+						for (int i = 0; i < h; i++) {
+							coord.X += 1;
+							SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+							printf(" ");
+							this_thread::sleep_for(chrono::milliseconds(velocidad));
+						}
+
+						m--;
+
+						for (int i = 0; i < h; i++) {
+							coord.Y -= 1;
+							SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+							printf(" ");
+							this_thread::sleep_for(chrono::milliseconds(velocidad));
+						}
+
+						h++;
+						for (int i = 0; i < h; i++) {
+							SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+							printf("\b ");
+							this_thread::sleep_for(chrono::milliseconds(velocidad));
+							coord.X -= 1;
+						}
+						m--;
+				}
+			}
+		} else {
+			if (m == z) {
+				terminado = true;
+			} else {
+				if (m == ((dimension)+(dimension - 1))) {
+					coord.X += 1;
+					h++;
+					for (int i = 0; i < h + 1; i++) {
+						SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+						printf("\b ");
+						this_thread::sleep_for(chrono::milliseconds(velocidad));
+						coord.X += 1;
+					}
+					m--;
+					coord.X -= 2;
+				} else {
+
+					
+					for (int i = 0; i < h; i++) {
+						coord.Y -= 1;
+						SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+						printf(" ");
+						this_thread::sleep_for(chrono::milliseconds(velocidad));
+					}
+
+					h++;
+					m--;
+
+					for (int i = 0; i < h; i++) {
+						coord.X -= 1;
+						SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+						printf(" ");
+						this_thread::sleep_for(chrono::milliseconds(velocidad));
+					}
+
+					if (m  == z) {
+						terminado = true; break;
+					}
+
+					m--;
+
+					for (int i = 0; i < h; i++) {
+						coord.Y += 1;
+						SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+						printf(" ");
+						this_thread::sleep_for(chrono::milliseconds(velocidad));
+					}
+
+					h++;
+					coord.X += 1;
+					for (int i = 0; i < h; i++) {
+						SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+						printf(" ");
+						this_thread::sleep_for(chrono::milliseconds(velocidad));
+						coord.X += 1;
+					}
+					coord.X -= 1;
+					m--;
+				}
+			}
+		}
+	}
+
+}
