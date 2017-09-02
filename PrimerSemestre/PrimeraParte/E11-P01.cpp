@@ -33,14 +33,12 @@ void pausar();
 void borrarCuadrado(int dimension, COORD cursor);
 
 int main() {
-
 	int ladoCuadrado = pedirEntero(1, 21);
 	COORD cursor = dibujarCuadrado(ladoCuadrado);
 	pausar();
 	borrarCuadrado(ladoCuadrado, cursor);
 	_getche();
 	return 0;
-
 }
 
 int pedirEntero(int min, int max) {
@@ -80,10 +78,14 @@ COORD dibujarCuadrado(int dimension) {
 	HWND console = GetConsoleWindow(); RECT r;
 	GetWindowRect(console, &r);
 	MoveWindow(console, r.left, r.top, 1100, 600, TRUE);
-
+	
+	//Si el cuadrado tiene una dimension impar terminar de dibujar hacia la derecha.
 	if ((h % 2) != 0) {
-
+		
+		//Mientras el cuadrado no este terminado continuar dibujando.
 		while (terminado == false) {
+			
+			//Dibujar a la derecha (n) asteriscos.
 			for (int i = 0; i < h; i++) {
 					SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 					printf("*\b");
@@ -91,9 +93,13 @@ COORD dibujarCuadrado(int dimension) {
 					coord.X += 1;
 			}
 			m--;
+			
+			//Acaba de dibujar a la derecha, por lo tanto checar si acabo de dibujar.
 			if (m == 0) {
 				terminado = true;
 			} else {
+				
+				//Si no acabo de dibujar entonces dibujar hacia abajo, izquierda y arriba.
 				h--;
 				coord.X -= 1;
 				for (int i = 0; i < h; i++) {
@@ -123,7 +129,11 @@ COORD dibujarCuadrado(int dimension) {
 
 		}
 	} else {
+		
+		//Si la dimension es par entonces terminar de dibujar a la izquierda.
 		while (terminado == false) {
+			
+			//Dibujar hacia derecha, abajo, e izquierda
 			for (int i = 0; i < h; i++) {
 				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 				printf("*\b");
@@ -147,9 +157,13 @@ COORD dibujarCuadrado(int dimension) {
 				this_thread::sleep_for(chrono::milliseconds(velocidad));
 			}
 			m--;
+			
+			//Acaba de dibujar a la izquierda, por lo tanto checar si acabo de dibujar.
 			if (m == 0) {
 				terminado = true;
 			} else {
+				
+				//Si no acabo de dibujar entonces dibujar hacia arriba
 				h--;
 				for (int i = 0; i < h; i++) {
 					coord.Y -= 1;
@@ -164,6 +178,8 @@ COORD dibujarCuadrado(int dimension) {
 	}	
 	printf("\n\n");
 	return coord;
+	//La funcion genera las coordenadas en las que se quedo el cursor al final
+	//para que la siguiente funcion de borrar pueda saber desde donde partir.
 }
 
 void borrarCuadrado(int dimension, COORD cursor) {
