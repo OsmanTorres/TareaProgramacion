@@ -27,8 +27,6 @@ Puede usar variables globales y locales según lo requiera.
 #include <Windows.h>
 using namespace std;
 
-
-
 void captura(int arreglo[], int limMin, int limMax) {
 	int num;
 	for (int i = 0; i < 10; i++) {
@@ -43,7 +41,6 @@ void captura(int arreglo[], int limMin, int limMax) {
 		arreglo[i] = num;
 	}
 }
-
 char menu() {
 	char opcion = 'h';
 	printf("\n\nElige una de las siguientes opciones: ");
@@ -57,7 +54,6 @@ char menu() {
 	printf("\nOpcion: "); getchar(); opcion = getchar();
 	return opcion;
 }
-
 void promedio(int arreglo[]) {
 	int resultado;
 	int suma = 0;
@@ -67,7 +63,6 @@ void promedio(int arreglo[]) {
 	resultado = (suma / 10);
 	printf("\nPromedio: %d", resultado);
 }
-
 void numMayor(int arreglo[]) {
 	int mayor;
 	int arregloMayor[10];
@@ -82,7 +77,6 @@ void numMayor(int arreglo[]) {
 	mayor = arregloMayor[0];
 	printf("\nNumero Mayor: %d", mayor);
 }
-
 void numMenor(int arreglo[]) {
 	int menor;
 	int arregloMenor[10];
@@ -97,7 +91,6 @@ void numMenor(int arreglo[]) {
 	menor = arregloMenor[0];
 	printf("\nMenor Numero: %d", menor);
 }
-
 void lista(int arreglo[]) {
 	printf("\nArreglo: ");
 	for (int i = 0; i < 10; i++) {
@@ -110,7 +103,6 @@ void inversa(int arreglo[]) {
 		printf("%d ", arreglo[i]);
 	}
 }
-
 void posicion(int arreglo[]) {
 	int posicion;
 	printf("\nIntroduzca una posicion del array (0-9): "); scanf("%d", &posicion);
@@ -121,7 +113,6 @@ void posicion(int arreglo[]) {
 	}
 	printf("\nValor en posicion (%d): %d", posicion, arreglo[posicion]);
 }
-
 
 int main() {
 	int arreglo[10];
@@ -146,6 +137,5 @@ int main() {
 			printf("\nError. Opcion no valida, debe estar entre (a) y (g).");
 		}
 	}
-
 	return 0;
 }
