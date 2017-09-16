@@ -7,3 +7,40 @@ b.	Repita el paso “a” pero ahora muestre los números empezando por el últi
 es decir en el orden inverso, esta acción deberá estar en un a función que se llame inverso().
 Todas las funciones deben trabajar con variables locales, la única variable global será el propio arreglo.
 */
+
+#include <iostream>
+#include <string>
+#include <stdio.h>
+#include <conio.h>
+#include <Windows.h>
+using namespace std;
+
+void captura(int arreglo[]) {
+	int num;
+	for (int i = 0; i < 5; i++) {
+		printf("Introduzca un numero entero (%d): ", (i+1)); scanf("%d", &num);
+		arreglo[i] = num;
+	}
+}
+void lista(int arreglo[]) {
+	printf("\nArreglo: ");
+	for (int i = 0; i < 5; i++) {
+		printf("%d ", arreglo[i]);
+	}
+}
+void inverso(int arreglo[]) {
+	printf("\nInverso: ");
+	for (int i = 4; i >= 0; i--) {
+		printf("%d ", arreglo[i]);
+	}
+}
+
+int main() {
+	int arreglo[5];
+	printf("\n");
+	captura(arreglo);
+	lista(arreglo);
+	inverso(arreglo);
+	_getche();
+	return 0;
+}
