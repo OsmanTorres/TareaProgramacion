@@ -19,7 +19,7 @@ void error(int num) {
 	}
 }
 
-void capturar(char arreglo[], char limMin, char limMax) {
+void lee_letras(char arreglo[], char limMin, char limMax) {
 	char caracter;
 	for (int i = 0; i < 5; i++) {
 		//Entre 97 to 122 ASCII
@@ -80,7 +80,7 @@ void imprimir(char ordenado[], int num) {
 int main() {
 	
 	char arreglo[5] = {0};
-	capturar(arreglo, 'a', 'z');
+	lee_letras(arreglo, 'a', 'z');
 	imprimir(arreglo, 1);
 	ordenar(arreglo);
 	imprimir(arreglo, 2);
