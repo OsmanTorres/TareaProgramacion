@@ -17,3 +17,84 @@ Elabore un programa que realice las siguientes actividades:
   si todas las posiciones de ambos arreglos son iguales su programa deberá indicar “Password Correcto” 
   de lo contrario deberá indicar “Password Incorrecto …”
 */
+
+#include <iostream>
+#include <string>
+#include <stdio.h>
+#include <conio.h>
+#include <Windows.h>
+#include <regex>
+
+using namespace std;
+
+
+void error(int num) {
+	if (num == 1) {
+		printf("Error. Se introdujeron caracteres no validos.\n");
+	} else if (num == 2) {
+		printf("Error. La contrase%ca debe tener menos de 10 caracteres.\n", 164);
+	}
+}
+
+void iniciar(char in[], char pass[]) {
+	for (int i = 0; i < 10; i++) {
+		in[i] = { ' ' };
+		pass[i] = { ' ' };
+	}
+}
+
+void captura_letras(char in[]) {
+	char temp[10];
+	char test[10];
+	printf("Captura Password: "); scanf("%s", test);
+	bool letras = regex_match(test, regex("^[a-z]+$"));
+	bool tamano = (strlen(test) < 10);
+	bool correcto = false;
+	while (correcto == false) {
+		if (letras == true && tamano == true) {
+			for (int i = 0; i < 10; i++) {
+				temp[i] = test[i];
+			}
+			strcpy(in, temp);
+			correcto = true;
+		} else if (letras == false) {
+			error(1);
+			printf("Captura Password: "); scanf("%s", test);
+			letras = regex_match(test, regex("^[a-z]+$"));
+			tamano = (strlen(test) < 10);
+		} else {
+			error(2);
+			printf("Captura Password: "); scanf("%s", test);
+			letras = regex_match(test, regex("^[a-z]+$"));
+			tamano = (strlen(test) < 10);
+		}
+	}
+	
+}
+
+void comparar(char in[], char pass[]) {
+	bool caracteresIguales = true;
+	for (int i = 0; i < 10; i++) {
+		if (in[i] != pass[i]) {
+			caracteresIguales = false;
+		} 
+	}
+	if (caracteresIguales == true) {
+		printf("\nPassword Correcto");
+	} else {
+		printf("\nPassword Incorrecto");
+	}
+}
+
+int main() {
+	
+	char input[10], password[10];
+	iniciar(input, password);
+	strcpy(password,"arzaba\0  ");
+	printf("Contrase%ca:  %s\n\n",164, password);
+	captura_letras(input);
+	comparar(input, password);
+
+	_getche();
+	return 0;
+}
