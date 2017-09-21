@@ -94,10 +94,12 @@ void muestra_nums(vector<double> &num) {
 	}
 	printf("\b\b \n");
 }
+
 void media(vector<double> &num) {
 	double promedio = accumulate(num.begin(), num.end(), 0.0) / num.size();
 	printf("Promedio: %.3f\n", promedio);
 }
+
 void mayor(vector<double> &num) {
 	size_t may = 0;
 	for (size_t pos = 1; pos < num.size(); ++pos) {
@@ -107,6 +109,7 @@ void mayor(vector<double> &num) {
 	}
 	printf("Mayor Numero: %.2f\n", num[may]);
 }
+
 void menor(vector<double> &num) {
 	size_t may = 0;
 	for (size_t pos = 1; pos < num.size(); ++pos) {
@@ -116,12 +119,15 @@ void menor(vector<double> &num) {
 	}
 	printf("Menor Numero: %.2f\n", num[may]);
 }
+
 void mediana(vector<double> &num) {
 	vector<double> test(num);
 	double resultado;
 	sort(test.begin(), test.end());
-	//Si la cantidad de datos es impar el resultado es el valor a la mitad del vector
-	//De lo contrario es la media de los dos numeros alrededor de la mitad del vector.
+	
+	/*Si la cantidad de datos es impar el resultado es el valor a la mitad del vector
+	De lo contrario es la media de los dos numeros alrededor de la mitad del vector.*/
+	
 	if (test.size() % 2 == 0) {
 		resultado = (test[test.size() / 2 - 1] + test[test.size() / 2]) / 2;
 	} else {
@@ -129,6 +135,7 @@ void mediana(vector<double> &num) {
 	}
 	printf("Mediana: %.2f\n", resultado);
 }
+
 void moda(vector<double> &num) {
 	vector<double> test(num);
 	sort(test.begin(), test.end());
@@ -137,10 +144,10 @@ void moda(vector<double> &num) {
 	int max = 0;
 	double moda = test[0];
 
-	//Aprovechando que el vector esta ordenado:
-	//Si es igual al siguiente numero, agregar uno al contado de dicho numero.
-	//Si es el contador mas grande se actualiza el numero que se considera la moda
-	//Si el siguiente numero no es igual se resetea el contador.
+	/*Aprovechando que el vector esta ordenado:
+	Si es igual al siguiente numero, agregar uno al contado de dicho numero.
+	Si es el contador mas grande se actualiza el numero que se considera la moda
+	Si el siguiente numero no es igual se resetea el contador.*/
 
 	for (int i = 0; i < (test.size()-1); i++) {
 		if (test[i] == test[i + 1]) {
@@ -155,23 +162,24 @@ void moda(vector<double> &num) {
 	}
 	printf("Moda: %.2f\n", moda);
 }
+
 void desv_est(vector<double> &num) {
 	vector<double> test(num);
 	vector<double> diff(test);
 	sort(test.begin(), test.end());
 	double promedio = accumulate(test.begin(), test.end(), 0.0) / test.size();
 
-	//transform es una funcion que aplica una operacion a todos los elementos del rango
-	//En este caso la resta del promedio y todos los numeros de test. Guardamos en diff.
-	//Luego Multiplicamos la suma de todos los numeros en diff al cuadrado.
-	//Finalmente obtenemos la raiz cuadrada de la suma anterior entre la cantidad de valores.
+	/*Transform es una funcion que aplica una operacion a todos los elementos del rango
+	En este caso la resta del promedio y todos los numeros de test. Guardamos en diff.
+	Luego Multiplicamos la suma de todos los numeros en diff al cuadrado.
+	Finalmente obtenemos la raiz cuadrada de la suma anterior entre la cantidad de valores*/
 
 	transform(test.begin(), test.end(), diff.begin(), [promedio](double x) {return x - promedio;});
 	double sq_sum = inner_product(diff.begin(), diff.end(), diff.begin(), 0.0);
 	double stdev = sqrt(sq_sum / test.size());
-
 	printf("Desviacion Estandar: %.2f\n", stdev);
 }
+
 void lista_men_may(vector<double> &num) {
 	vector<double> test(num);
 	sort(test.begin(), test.end());
@@ -181,6 +189,7 @@ void lista_men_may(vector<double> &num) {
 	}
 	printf("\b\b \n");
 }
+
 void lista_may_men(vector<double> &num) {
 	vector<double> test(num);
 	sort(test.rbegin(), test.rend());
@@ -194,16 +203,13 @@ void lista_may_men(vector<double> &num) {
 int main() {	
 
 	printf("\nBienvenido. Presiona ESC para salir.");
-
 	vector<double> numeros;
 	char seleccion = 'k';
 	bool vectorInicialCorrecto = false;
 	bool salir = false;
 	bool primera = false;
 	while (salir == false) {
-		if (primera == true) {
-			_getche();
-		}
+		if (primera == true) { _getche(); }
 		primera = true;
 		seleccion = menu();
 		if (GetAsyncKeyState(VK_ESCAPE)) {
@@ -241,4 +247,3 @@ int main() {
 	}
 	return 0;
 }
-
