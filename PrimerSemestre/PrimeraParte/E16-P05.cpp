@@ -18,3 +18,94 @@ Opción “a”: Deberá leer una palabra entre 5 y 25 caracteres en abecedario 
 Opción “b”: Deberá leer una palabra entre 5 y 25 caracteres en shift 1y desplegar el equivalente en abecedario normal.
 Opción “c”: Deberá terminar el programa.
 */
+
+#include <iostream>
+#include <string>
+#include <stdio.h>
+#include <conio.h>
+#include <windows.h>
+#include <algorithm>
+using namespace std;
+
+char menu() {
+	char opcion = 'g';
+	printf("\nElige una de las siguientes opciones: ");
+	printf("\na) De normal a shift 1 ");
+	printf("\nb) De shift 1 a normal");
+	printf("\nc) Terminar");
+	printf("\nOpcion: ");
+	opcion = getchar(); getchar();
+	return opcion;
+}
+
+string pedirpalabra(int minChar, int maxChar) {
+	string palabra;
+	printf("\nIntroduce la palabra:  \n"); getline(cin, palabra);
+	palabra.erase(remove_if(palabra.begin(), palabra.end(), [](char c) { return !isalpha(c); }), palabra.end());
+	while ((palabra.length()) > maxChar || (palabra.length()) < minChar) {
+		printf("\nError. Debe introducir entre %d y %d caracteres.\n", minChar, maxChar);
+		printf("\nIntroduce el usuario:  \n"); getline(cin, palabra);
+		palabra.erase(remove_if(palabra.begin(), palabra.end(), [](char c) { return !isalpha(c); }), palabra.end());
+	}
+	return palabra;
+}
+
+char normal(char ch) {
+	if (ch == 'z') {
+		return 'a';
+	} else if (ch == 'Z') {
+		return 'A';
+	} else {
+		return ch + 1;
+	}
+}
+
+char shift(char ch) {
+	if (ch == 'a') {
+		return 'z';
+	} else if (ch == 'A') {
+		return 'Z';
+	} else {
+		return ch - 1;
+	}
+}
+
+void pasarShift(string palabra) {
+	string resultado;
+	for (int i = 0; i < palabra.length(); i++) {
+		resultado += shift(palabra[i]);
+	}
+	printf("\nPalabra a Shift: %s\n", resultado.c_str());
+}
+
+void pasarNormal(string palabra) {
+	string resultado;
+	for (int i = 0; i < palabra.length(); i++) {
+		resultado += normal(palabra[i]);
+	}
+	printf("\nPalabra a Shift: %s\n", resultado.c_str());
+}
+
+int main() {
+
+	printf("\nBienvenido.\n");
+	int minChar = 5; int maxChar = 25;
+	bool terminarPreguntar = false;
+	char seleccion;
+	while (terminarPreguntar == false) {
+		seleccion = menu();
+		if (seleccion == 'a') {
+			string palabra = pedirpalabra(minChar, maxChar);
+			pasarShift(palabra);
+		} else if (seleccion == 'b') {
+			string palabra = pedirpalabra(minChar, maxChar);
+			pasarNormal(palabra);
+		} else if (seleccion == 'c') {
+			terminarPreguntar = true; break;
+		} else {
+			printf("\nError. Opcion no valida.\n");
+		}
+	}
+
+	return 0;
+}
