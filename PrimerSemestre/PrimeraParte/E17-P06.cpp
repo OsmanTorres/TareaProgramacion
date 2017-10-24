@@ -138,4 +138,4 @@ int main() {
 	printf("\n Ganaste! \n");
 	_getche();
 	return 0;
-}
+} 
